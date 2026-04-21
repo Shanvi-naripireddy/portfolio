@@ -1,0 +1,192 @@
+/* ── PROJECTS PAGE ── */
+.projects-hero {
+  padding-top: 52px;
+  background: var(--white);
+  border-bottom: 1px solid var(--border);
+}
+
+.projects-hero__inner {
+  padding: 100px 24px 80px;
+  max-width: var(--container);
+  margin: 0 auto;
+}
+
+.projects-hero__label {
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--text-tertiary);
+  margin-bottom: 16px;
+  animation: fadeIn 0.6s ease both;
+}
+
+.projects-hero__title {
+  font-size: clamp(36px, 6vw, 64px);
+  font-weight: 300;
+  letter-spacing: -0.04em;
+  line-height: 1.05;
+  color: var(--text-primary);
+  margin-bottom: 20px;
+  animation: fadeUp 0.7s ease 0.1s both;
+}
+
+.projects-hero__title strong { font-weight: 600; }
+
+.projects-hero__sub {
+  font-size: 19px;
+  font-weight: 300;
+  color: var(--text-secondary);
+  max-width: 480px;
+  line-height: 1.6;
+  animation: fadeUp 0.7s ease 0.2s both;
+}
+
+/* ── GRID ── */
+.projects-section {
+  padding: 80px 0 120px;
+  background: var(--bg);
+}
+
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  overflow: hidden;
+}
+
+/* Featured card spans full width */
+.project-card--featured {
+  grid-column: 1 / -1;
+}
+
+.project-card {
+  background: var(--bg-card);
+  padding: 48px;
+  border-right: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+  transition: background 0.2s;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.project-card:nth-child(even):not(.project-card--featured) { border-right: none; }
+.project-card:last-child,
+.project-card:nth-last-child(2):not(.project-card--featured) { border-bottom: none; }
+
+.project-card:hover { background: var(--bg); }
+
+.project-card__header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  margin-bottom: 24px;
+}
+
+.project-card__icon {
+  width: 48px;
+  height: 48px;
+  border-radius: 12px;
+  background: var(--bg);
+  border: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 22px;
+}
+
+.project-card__year {
+  font-size: 13px;
+  color: var(--text-tertiary);
+  font-weight: 400;
+}
+
+.project-card__title {
+  font-size: 20px;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  color: var(--text-primary);
+  margin-bottom: 12px;
+  line-height: 1.2;
+}
+
+.project-card--featured .project-card__title {
+  font-size: 28px;
+}
+
+.project-card__desc {
+  font-size: 15px;
+  font-weight: 300;
+  color: var(--text-secondary);
+  line-height: 1.7;
+  margin-bottom: 24px;
+  flex: 1;
+}
+
+.project-card__points {
+  margin-bottom: 28px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.project-card__point {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  font-size: 14px;
+  font-weight: 400;
+  color: var(--text-secondary);
+  line-height: 1.5;
+}
+
+.project-card__point::before {
+  content: '—';
+  font-size: 12px;
+  color: var(--text-tertiary);
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.project-card__tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-bottom: 28px;
+}
+
+.project-tag {
+  font-size: 12px;
+  font-weight: 500;
+  padding: 4px 12px;
+  border-radius: 980px;
+  background: var(--bg);
+  border: 1px solid var(--border);
+  color: var(--text-secondary);
+}
+
+.project-card__link {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--accent);
+  transition: opacity 0.2s;
+  margin-top: auto;
+}
+.project-card__link:hover { opacity: 0.7; }
+.project-card__link::after { content: ' →'; }
+
+/* ── RESPONSIVE ── */
+@media (max-width: 768px) {
+  .projects-grid { grid-template-columns: 1fr; }
+  .project-card { padding: 32px 24px; border-right: none; }
+  .project-card--featured { grid-column: 1; }
+  .project-card:last-child,
+  .project-card:nth-last-child(2) { border-bottom: 1px solid var(--border); }
+  .project-card:last-child { border-bottom: none; }
+}
